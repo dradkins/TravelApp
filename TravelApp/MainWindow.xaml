@@ -1,0 +1,92 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        x:Class="TravelApp.MainWindow"
+        Title="MainWindow" Height="635.021" Width="1273" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="2,0,-6,-19">
+        <GroupBox Header="Select Destinations" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="74" Width="774">
+            <Grid HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="609" Margin="0,0,-2,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="199*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Select Pickup City&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="136" Height="26" Margin="10,0,0,0"/>
+                <Label Content="Select Destination City" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,0,0,0"/>
+                <Button x:Name="btnCheckDistance" Content="Get Information" HorizontalAlignment="Left" Margin="401,24,0,0" VerticalAlignment="Top" Width="198" Height="21" Click="btnCheckDistance_Click" Grid.ColumnSpan="2"/>
+            </Grid>
+        </GroupBox>
+        <ComboBox x:Name="cmbPickUpCity" HorizontalAlignment="Left" Margin="27,50,0,0" VerticalAlignment="Top" Width="177"/>
+        <ComboBox x:Name="cmbDestinationCity" HorizontalAlignment="Left" Margin="222,50,0,0" VerticalAlignment="Top" Width="177"/>
+        <GroupBox Header="Booking" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,120,0,0" Height="74" Width="774">
+            <Grid HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="609" Margin="0,1,-2,0">
+                <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,-4,0,0" Width="54" Height="26"/>
+                <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,-4,0,0"/>
+                <Label Content="Pickup Date And Time" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="401,-4,0,0"/>
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="27,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="222,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <wpfTool:DateTimePicker x:Name="dtpPickUpDateTime" HorizontalAlignment="Left" Margin="421,155,0,0" VerticalAlignment="Top" Width="265"></wpfTool:DateTimePicker>
+        <GroupBox Header="Map" HorizontalAlignment="Left" Margin="801,212,0,0" VerticalAlignment="Top" Height="381" Width="451">
+            <Grid HorizontalAlignment="Left" Height="156" VerticalAlignment="Top" Width="764" Margin="0,0,-2,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="138*"/>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="536*"/>
+                </Grid.ColumnDefinitions>
+                <m:Map CredentialsProvider="BD2eVPMDLA5FbRgjEeTm~tZMimsmhlq1sEyyuaajxxw~AuDw7wgnps4VJe9nSQugc6FVLOcUd67JIi7RBWxsUvLXxgzbcQ-nhbwfbfb87mOV" x:Name="myMap" HorizontalAlignment="Left" Height="343" Margin="0,10,0,-197" VerticalAlignment="Top" Width="418" Grid.Column="1" Grid.ColumnSpan="4" />
+                <!--<WindowsPresentation:GMapControl x:Name="gMap" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="125" Margin="10,10,0,0" VerticalAlignment="Top" Width="744" MaxZoom="10" ShowTileGridLines="True"/>-->
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Records" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Height="358" Width="774">
+            <Grid HorizontalAlignment="Left" Height="153" VerticalAlignment="Top" Width="607"/>
+        </GroupBox>
+        <ListView x:Name="lstViewDetails" HorizontalAlignment="Left" Height="321" Margin="20,260,0,0" VerticalAlignment="Top" Width="753">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Pickup Place" Width="150" DisplayMemberBinding="{Binding PickUpPlace.PlaceName}" />
+                    <GridViewColumn Header="Destination Place" Width="150" DisplayMemberBinding="{Binding DestinationPlace.PlaceName}" />
+                    <GridViewColumn Header="Travel DateTime" Width="150" DisplayMemberBinding="{Binding TravelDateTime}" />
+                    <GridViewColumn  Header="Edit" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" Margin="10" VerticalAlignment="Center" Click="btnEditRecord_Click"  CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn  Header="Delete" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Margin="10" VerticalAlignment="Center" Click="btnDeleteRecord_Click"  CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+
+
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnBook" Content="Book" HorizontalAlignment="Left" Margin="691,199,0,0" VerticalAlignment="Top" Width="87" Height="31" Click="btnBook_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="691,199,0,0" VerticalAlignment="Top" Width="87" Height="31" Click="btnUpdate_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="100" Margin="999,639,-446,-114" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="599,199,0,0" VerticalAlignment="Top" Width="87" Height="31" Click="btnCancel_Click"/>
+        <GroupBox Header="Information" HorizontalAlignment="Left" Margin="801,10,0,0" VerticalAlignment="Top" Height="184" Width="451">
+            <Grid HorizontalAlignment="Left" Height="144" VerticalAlignment="Top" Width="416" Margin="10,10,0,0">
+                <Label Content="Distance :" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Estimated Travelling Time :" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <Label Content="Pickup Place :" HorizontalAlignment="Left" Margin="79,72,0,0" VerticalAlignment="Top"/>
+                <Label Content="Destination Place :" HorizontalAlignment="Left" Margin="54,103,0,0" VerticalAlignment="Top"/>
+                <Label Content="" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,2.846" Name="lblDistance" />
+                <Label Content="" HorizontalAlignment="Left" Margin="183,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,2.846" Name="lblTravellingTime" />
+                <Label Content="" HorizontalAlignment="Left" Margin="183,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,2.846" Name="lblPickupPlace" />
+                <Label Content="" HorizontalAlignment="Left" Margin="183,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,2.846" Name="lblDestPlace" />
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>
