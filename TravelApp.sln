@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp", "TravelApp\TravelApp.csproj", "{0F4F3C77-3576-426E-8B0C-127D24D6ACE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Models", "TravelApp.Models\TravelApp.Models.csproj", "{C05F04BE-4B9E-4DF2-8B44-65586D777B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.EF", "TravelApp.EF\TravelApp.EF.csproj", "{4BFB4E9A-3798-4045-8DCE-F367947EB51B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F4F3C77-3576-426E-8B0C-127D24D6ACE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4F3C77-3576-426E-8B0C-127D24D6ACE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4F3C77-3576-426E-8B0C-127D24D6ACE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4F3C77-3576-426E-8B0C-127D24D6ACE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05F04BE-4B9E-4DF2-8B44-65586D777B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05F04BE-4B9E-4DF2-8B44-65586D777B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05F04BE-4B9E-4DF2-8B44-65586D777B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05F04BE-4B9E-4DF2-8B44-65586D777B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFB4E9A-3798-4045-8DCE-F367947EB51B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFB4E9A-3798-4045-8DCE-F367947EB51B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFB4E9A-3798-4045-8DCE-F367947EB51B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFB4E9A-3798-4045-8DCE-F367947EB51B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
